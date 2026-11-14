@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mockup 2 - Clean Light</title>
+<style>
+:root{--bg:#f4f1ea;--card:#ffffff;--line:#e3ded3;--ink:#1d1b19;--muted:#7d776d;--gold:#d99a06;--acc:#e06b2d;--blue:#2563eb;--purple:#7c3aed}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:"Segoe UI",system-ui,sans-serif;max-width:420px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;padding:14px;gap:12px}
+.top{display:flex;justify-content:space-between;align-items:flex-end}
+.top h1{font-size:13px;letter-spacing:4px;color:var(--muted);font-weight:700}
+.top .gold{font-size:40px;font-weight:800;line-height:1;letter-spacing:-1px}
+.top .gold small{font-size:12px;color:var(--gold);font-weight:700;letter-spacing:2px;margin-left:6px}
+.stats{display:flex;gap:8px}
+.stats div{flex:1;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 10px}
+.stats small{display:block;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.stats b{font-size:16px}
+.body{display:grid;grid-template-columns:1fr 118px 1fr;gap:6px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px 8px;min-height:360px}
+.col{display:flex;flex-direction:column;gap:10px}
+.sl{background:#faf8f3;border:1px solid var(--line);border-radius:12px;padding:8px;display:flex;align-items:center;gap:8px;cursor:pointer}
+.sl.sel{border:2px solid var(--acc);background:#fff4ec}
+.sl .ic{font-size:20px}
+.sl .t{font-size:11px;font-weight:700;line-height:1.1}
+.sl .t small{display:block;color:var(--muted);font-weight:500;font-size:10px}
+.sl .lv{margin-left:auto;font-weight:800;font-size:13px}
+.sl.max .lv{color:var(--gold)}
+.fig{text-align:center}
+.fig small{display:block;font-size:10px;color:var(--muted);margin-top:4px;letter-spacing:1px}
+.panel{background:var(--ink);color:#fff;border-radius:20px;padding:14px}
+.panel .h{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.panel .h .ic{font-size:28px}
+.panel .h .t{font-weight:800;font-size:15px}
+.panel .h .t small{display:block;color:#b8b2a7;font-weight:400;font-size:11px}
+.panel .h .lv{margin-left:auto;font-size:28px;font-weight:800;color:var(--gold)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.g{border-radius:12px;padding:10px;text-align:center;font-weight:700;font-size:13px}
+.g small{display:block;font-weight:500;font-size:11px;opacity:.85}
+.g.A{background:#fff;color:var(--ink)} .g.B{background:#3a3733;color:#fff;border:1px solid #55514b}
+.tog{display:flex;gap:6px}
+.tog div{flex:1;border:1px solid #55514b;border-radius:10px;padding:7px;font-size:11px;text-align:center;color:#b8b2a7}
+.tog div.on{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:700}
+.pack{display:flex;gap:6px}
+.pack div{flex:1;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:7px;text-align:center;font-size:11px;color:var(--muted)}
+.pack div.on{border-color:var(--gold);color:var(--ink);background:#fff8e6}
+.pack b{display:block;font-size:13px}
+</style></head><body>
+<div class="top"><div><h1>CLICK UPGRADE</h1><div class="gold">12,4K<small>GOLD</small></div></div>
+  <div style="text-align:right;font-size:12px;color:var(--muted)">⏱ <b style="color:var(--ink)">07:42</b><br>combo <b style="color:var(--acc)">x24</b></div></div>
+<div class="stats"><div><small>Per tap</small><b>211</b></div><div><small>Per detik</small><b>318</b></div><div><small>Progress</small><b>61/150</b></div><div><small>Dipakai</small><b>9.1K</b></div></div>
+
+<div class="body">
+  <div class="col">
+    <div class="sl sel"><span class="ic">🪖</span><div class="t">Kepala<small>Luck +2.7%</small></div><span class="lv">+17</span></div>
+    <div class="sl"><span class="ic">👕</span><div class="t">Baju<small>Pasif x1.22</small></div><span class="lv">+11</span></div>
+    <div class="sl"><span class="ic">👖</span><div class="t">Celana<small>Scroll -10%</small></div><span class="lv">+10</span></div>
+  </div>
+  <div class="fig">
+    <svg width="118" height="253" viewBox="0 0 140 300" fill="none" stroke="#1d1b19" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+      <circle cx="70" cy="34" r="24" fill="#fff"/>
+      <path d="M58 58 h24 v10 h-24z" fill="#fff"/>
+      <path d="M40 72 Q70 62 100 72 L104 150 L36 150 Z" fill="#fff4ec"/>
+      <path d="M40 74 L18 140 L32 146 L50 92" fill="#fff"/>
+      <path d="M100 74 L122 140 L108 146 L90 92" fill="#fff"/>
+      <circle cx="25" cy="148" r="8" fill="#fff"/><circle cx="115" cy="148" r="8" fill="#fff"/>
+      <path d="M38 150 L46 240 L66 240 L70 160 L74 240 L94 240 L102 150 Z" fill="#fff"/>
+      <path d="M44 240 L40 266 L68 266 L66 240 Z" fill="#fff"/><path d="M74 240 L72 266 L100 266 L96 240 Z" fill="#fff"/>
+      <path d="M116 146 L138 50" stroke="#2563eb" stroke-width="6"/><path d="M108 140 L128 150" stroke="#d99a06" stroke-width="5"/>
+      <ellipse cx="70" cy="284" rx="44" ry="6" fill="#e3ded3" stroke="none"/>
+    </svg>
+    <small>TAP = GOLD</small>
+  </div>
+  <div class="col">
+    <div class="sl max"><span class="ic">⚔️</span><div class="t">Weapon<small>211/tap</small></div><span class="lv">+25</span></div>
+    <div class="sl"><span class="ic">🧤</span><div class="t">Tangan<small>Combo x86</small></div><span class="lv">+7</span></div>
+    <div class="sl"><span class="ic">👢</span><div class="t">Kaki<small>Tempa -16%</small></div><span class="lv">+8</span></div>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="h"><span class="ic">🪖</span><div class="t">KEPALA<small>Luck +2.72% · 76 gold/detik</small></div><div class="lv">+17</div></div>
+  <div class="row"><div class="g A">Grade A · 97.7%<small>💰 2.9K</small></div><div class="g B">Grade B · 67.7%<small>💰 1.2K</small></div></div>
+  <div class="tog"><div class="on">💰 86 · gagal turun 1 lv</div><div>💰 258 · asuransi, stay</div></div>
+</div>
+<div class="pack"><div class="on"><b>+10/dtk</b>all +5 ✓</div><div><b>+80/dtk</b>all +10 · 7/10</div><div><b>+350/dtk</b>all +20 · 7/20</div></div>
+</body></html>
