@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>CLICK UPGRADE</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="userbar" id="userbox"></div>
+
+<div class="top">
+  <div><h1>CLICK UPGRADE</h1><div class="gold"><span id="gold">0</span><small>GOLD</small></div><div class="stone">💎 <b id="stones">0</b> <small>Batu Suci</small></div></div>
+  <div class="right"><span id="tlabel">⏱</span> <b id="timer">00:00</b> · 💸 <b id="spent">0</b><button id="sound">🔊</button><button id="manual-btn">📖</button><br><span id="rb"></span><span class="cb" id="combo">&nbsp;</span></div>
+</div>
+
+<div class="stats">
+  <div><small>Per tap</small><b id="perTap">1</b></div>
+  <div><small>Per detik</small><b id="perSec">0</b></div>
+  <div><small>Progress</small><b id="prog">0/150</b></div>
+  <div><small>Power</small><b id="power">0</b></div>
+</div>
+
+<div class="gmode">
+  <button id="gm-normal" class="on">🏁 NORMAL<small>tamat = semua +25</small></button>
+  <button id="gm-ta">⏳ TIME ATTACK<small>30 menit · rebirth</small></button>
+</div>
+
+<div class="arena">
+  <div class="col" id="colL"></div>
+  <div class="center">
+    <div class="tapv" id="tapv">+1</div>
+    <div id="tap">💰</div>
+    <div class="hint">TAP = GOLD</div>
+  </div>
+  <div class="col" id="colR"></div>
+</div>
+
+<div class="maintabs">
+  <button id="tab-ench" class="on">⚔️ ENCHANT</button>
+  <button id="tab-skill">✨ SKILLS</button>
+</div>
+
+<div class="tabpage on" id="page-ench">
+<div class="rebirth" id="rebirth">
+  <div class="rt">🔁 SEMUA +25! SIAP REBIRTH</div>
+  <div class="rd" id="rb-desc"></div>
+  <button id="rb-btn">REBIRTH SEKARANG</button>
+</div>
+<div class="forge" id="forge">
+  <div class="h"><span class="ic" id="f-ic">⚔️</span><div class="t"><span id="f-name">WEAPON</span><small id="f-sub"></small></div><div class="lv" id="f-lv">+0</div></div>
+  <div class="bar"><i id="f-bar"></i></div>
+  <div class="roll" id="f-roll"></div>
+  <div class="pity" id="f-pity"></div>
+  <div class="grades"><button class="btn A" id="btn-A"></button><button class="btn B" id="btn-B"></button></div>
+  <div class="ins">
+    <button id="mode-drop" class="on"><b>💰 100 · Tanpa asuransi</b>gagal = turun 1 level</button>
+    <button id="mode-stay"><b>💰 30% · Asuransi</b>gagal = stay level</button>
+  </div>
+</div>
+
+<div class="pack" id="packs"></div>
+<div class="line" style="font-size:10px;color:var(--muted);text-align:center;display:block">💎 Batu Suci untuk Grade A tier 2+. Dapat dari Level Pack, milestone skill, item +10/+15/+20/+25, tiap 10 sukses, tamat run, rebirth. Dibawa lintas run.</div>
+</div>
+
+<div class="tabpage" id="page-skill">
+  <div class="line" style="padding:0 2px"><span>Idle skills · harga naik tiap level</span><span>Milestone tiap <b>25 Lv</b></span></div>
+  <div id="skills"></div>
+</div>
+
+<div class="line">
+  <span>Streak 🔥 <b id="s-streak">0</b> (best <b id="s-best">0</b>)</span>
+  <span>Enchant <b id="s-tries">0</b> · ✅ <b id="s-ok">0</b> · ❌ <b id="s-bad">0</b></span>
+</div>
+
+<div class="panel"><div class="title">Log</div><div class="log" id="logs"></div></div>
+
+<div class="panel">
+  <div class="title"><span>🏆 Leaderboard</span>
+    <div class="tabs"><span id="lb-scope" style="font-size:10px;color:var(--muted);align-self:center;margin-right:4px"></span><button id="tab-time" class="on">⏱ Waktu</button><button id="tab-gold">💰 Gold</button><button id="tab-ta">⏳ TA</button></div>
+  </div>
+  <div id="board"></div>
+</div>
+
+<button class="reset" id="reset">Mulai run baru (reset)</button>
+
+<div class="manual" id="manual">
+  <div class="wrap">
+    <div class="head"><h2>📖 MANUAL</h2><button class="close" id="manual-close">✕ Tutup</button></div>
+    <div id="manual-body"></div>
+    <button class="start" id="manual-start">MULAI MAIN</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<canvas id="confetti"></canvas>
+
+<div class="modal" id="modal">
+  <div class="box">
+    <h2 id="m-title">🏆 SEMUA +25!</h2>
+    <p id="m-desc">Weapon dan 5 armor sudah maksimal. Catat ke leaderboard.</p>
+    <div class="res">
+      <div><small id="m-l1">Waktu</small><b id="m-v1">00:00</b></div>
+      <div><small id="m-l2">Gold dipakai</small><b id="m-v2">0</b></div>
+      <div><small id="m-l3">Enchant</small><b id="m-v3">0</b></div>
+      <div><small id="m-l4">Best streak</small><b id="m-v4">0</b></div>
+    </div>
+    <input id="m-name" maxlength="14" placeholder="Nama lu (max 14)">
+    <button class="go" id="m-save">SIMPAN & RUN BARU</button>
+  </div>
+</div>
+
+<script src="../hub.js"></script>
+<script src="config.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

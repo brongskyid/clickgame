@@ -1,0 +1,11 @@
+# Salin ke /etc/caddy/Caddyfile di VPS, ganti domainnya.
+play.namadomain.com {
+    root * /var/www/hub/public
+    encode gzip
+    php_fastcgi unix//run/php/php8.3-fpm.sock
+    file_server
+    header /api/* Cache-Control "no-store"
+    log {
+        output file /var/log/caddy/hub.log
+    }
+}

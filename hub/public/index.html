@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GAME HUB</title>
+<style>
+  :root{--bg:#0e0b14;--panel:#1a1522;--panel2:#241d30;--line:#332a40;--text:#f1ecf8;--muted:#9a90ad;--gold:#f5c542;--gold2:#b8860b;--purple:#a855f7}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:radial-gradient(ellipse at 50% 20%,#1c1430 0%,#0e0b14 60%) fixed;color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;max-width:460px;margin:0 auto;padding:16px;min-height:100vh;display:flex;flex-direction:column;gap:14px}
+  header{display:flex;justify-content:space-between;align-items:center}
+  header h1{font-size:20px;letter-spacing:4px;background:linear-gradient(180deg,#ffe08a,#f5c542 50%,#b8860b);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .user{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+  .user b{color:var(--text)}
+  .user button{background:var(--panel);border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:5px 10px;font-size:12px;cursor:pointer}
+  .user button.gold{border-color:var(--gold2);color:var(--gold);font-weight:700}
+  .status{font-size:11px;color:var(--muted);padding:0 2px}
+  .status i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#555;margin-right:6px;vertical-align:middle}
+  .status.on i{background:#4ade80} .status.off i{background:#f87171}
+  .games{display:flex;flex-direction:column;gap:10px}
+  a.game{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px;text-decoration:none;color:var(--text);transition:border-color .15s}
+  a.game:hover{border-color:var(--gold)}
+  a.game .ic{font-size:34px}
+  a.game .t{font-weight:800;font-size:15px}
+  a.game .t small{display:block;color:var(--muted);font-weight:400;font-size:12px;margin-top:2px}
+  a.game .go{margin-left:auto;color:var(--gold);font-weight:800}
+  .soon{opacity:.5;pointer-events:none}
+  footer{margin-top:auto;font-size:11px;color:var(--muted);text-align:center;padding-top:10px}
+</style>
+</head>
+<body>
+<header>
+  <h1>GAME HUB</h1>
+  <div class="user" id="user"></div>
+</header>
+<div class="status" id="status"><i></i>memeriksa server…</div>
+<div class="games">
+  <a class="game" href="clickgame/"><span class="ic">💰</span><div class="t">CLICK UPGRADE<small>Tap, enchant sampai +25, berani tanpa asuransi?</small></div><span class="go">MAIN ›</span></a>
+  <a class="game soon" href="#"><span class="ic">🎮</span><div class="t">GAME BERIKUTNYA<small>Segera</small></div><span class="go">—</span></a>
+</div>
+<footer>Dibuat oleh ANDI BINTORO</footer>
+<script src="hub.js"></script>
+<script>
+(async function(){
+  const $u=document.getElementById('user'), $s=document.getElementById('status');
+  function render(u){
+    if(u){ $u.innerHTML=`<span>👤 <b>${esc(u.name)}</b>${u.guest?' (tamu)':''}</span><button id="out">Keluar</button>`; document.getElementById('out').onclick=async()=>{await Hub.logout(); render(null);}; }
+    else { $u.innerHTML=`<button class="gold" id="in">Masuk / Daftar</button>`; document.getElementById('in').onclick=async()=>{ const u=await Hub.ui.login(); render(u); }; }
+  }
+  const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const ok=await Hub.ping();
+  $s.className='status '+(ok?'on':'off'); $s.innerHTML='<i></i>'+(ok?'server terhubung':'server tidak terjangkau, game tetap bisa dimainkan secara lokal');
+  render(ok?await Hub.me():null);
+})();
+</script>
+</body>
+</html>

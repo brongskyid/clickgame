@@ -5,15 +5,19 @@ Single-file HTML idle game, tanpa dependensi, jalan langsung di browser HP atau 
 
 ## Main
 
-Buka `click-upgrade.html` di browser. Progress dan leaderboard tersimpan di perangkat (localStorage).
+- **Dengan server (Game Hub):** `cd hub && php -S 127.0.0.1:8080 -t public`, buka http://127.0.0.1:8080/ . Login sekali, progres dan skor tersimpan di server.
+- **Tanpa server:** buka `hub/public/clickgame/index.html` langsung di browser. Game jalan penuh, progres di perangkat.
+- `legacy/click-upgrade.html` adalah versi lama satu file, dipertahankan untuk referensi, tidak dikembangkan lagi.
 
 ## Isi repo
 
-| File | Keterangan |
+| Path | Keterangan |
 |---|---|
-| `click-upgrade.html` | Game lengkap, satu file |
+| `hub/` | Game Hub: portal, SDK `hub.js`, API PHP, dan game dalam `hub/public/clickgame/` (HTML, CSS, config, logika terpisah) |
+| `legacy/click-upgrade.html` | Versi lama satu file |
 | `CLICK-UPGRADE-MANUAL.md` | Cara bermain dan referensi angka |
-| `mockups/` | Tiga mockup tampilan awal (Dark RPG, Clean Light, Neon Arcade) |
+| `docs/` | Panduan persiapan server (PDF) |
+| `mockups/` | Tiga mockup tampilan awal |
 
 ## Fitur
 
@@ -25,7 +29,7 @@ Buka `click-upgrade.html` di browser. Progress dan leaderboard tersimpan di pera
 - Leaderboard lokal: Waktu, Gold dipakai, skor Time Attack
 - Manual di dalam game (tombol 📖)
 
-Semua angka balance ada di blok konfigurasi di bagian atas script.
+Semua angka balance ada di `hub/public/clickgame/config.js`.
 
 ---
 
